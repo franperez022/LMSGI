@@ -1,0 +1,23 @@
+<Autopista>
+	<Evento1>
+		<señal>accidente</señal>
+		<puntokilométrico > 42,200 </puntokilométrico>
+		<nombredelavía> A-49 </nombredelavía>
+		<sentido> Huelva </sentido>
+		<cortedelavía> 1 carril </cortedelavía>
+		<fechahora> Fecha y hora del evento </fechahora>
+		<retención> Si </retención>
+		<kmretención> 8 </kmretención>
+	</Evento1>
+	<Evento2>
+		<señal>retencion</señal>
+		<puntokilométrico > 500 </puntokilométrico>
+		<nombredelavía> A-4 </nombredelavía>
+		<sentido> Sevilla </sentido>
+		<fechahora> Fecha y hora del evento </fechahora>
+		<retención> Si </retención>
+		<kmretención> 3 </kmretención>
+	</Evento2>
+</Autopista>
+
+	
