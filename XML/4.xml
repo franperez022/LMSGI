@@ -1,0 +1,20 @@
+<Meteorologia>
+		<precipitacion>55%</precipitacion>
+		<cielo > Intervalos nubosos </cielo>
+		<viento>
+			<direcion> suroeste </direcion>
+			<velocidad> 10km/h </velocidad>
+		</viento>
+		<temperatura>
+			<maxima>21ºC</maxima>
+			<minima>10ºC</minima>
+		</temperatura>
+		<sensaciontermica>
+			<maxima>21ºC</maxima>
+			<minima>10ºC</minima>
+		</sensaciontermica>
+		<humedadrelativa>
+			<maxima>90%</maxima>
+			<minima>50%</minima>
+		</humedadrelativa>
+		<indiceultravioletamax>3</
