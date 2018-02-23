@@ -4,7 +4,7 @@ identificadores que se encuentran en la lista."""
 lista=["01", "02", "03", "05", "07"]
 from lxml import etree
 doc = etree.parse('provinciasypoblaciones.xml')
-provincias = doc.findall('provincia ')
+provincias = doc.findall('provincia')
 for provincia in provincias: 
 	if provincia.attrib ["id"]in lista:
 		print("provincia: ", provincia[0].text)
