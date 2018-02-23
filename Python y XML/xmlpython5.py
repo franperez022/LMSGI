@@ -9,4 +9,4 @@ for provincia in provincias:
 localidades = provincia.findall('localidades/localidad ')
 for localidad in localidades:
 	if localidad.text == localidad:
-		print localidad.text, nombre.text
+		print (localidad.text, nombre.text)

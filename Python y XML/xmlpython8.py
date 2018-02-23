@@ -10,7 +10,7 @@ for provincia in provincias:
 	for localidad in localidades:
 		if localidad.text == poblacion:
 			if localidad.attrib["c"]=="1":
-				print (poblacion, "es ciudad grande de" provincia[0].text)
+				print (poblacion, "es ciudad grande de", provincia[0].text)
 			else:
 				print (poblacion, "no es cuidad grande" )
 
