@@ -1,0 +1,10 @@
+1. Listar todos los coches, mostrar nombre y modelo.
+2. Contar cuantos coches son de "USA" de origen.
+3. Buscar y listar los coches que superen los 100cv.
+4. Pedir por teclado una aceleración (con 1 decimal) y te muestre todos los coches
+que tienen menor aceleración que la indicada.
+5 Adivina el coche: piensa un coche y..
+introduce por teclado cuantos cv tiene.
+introduce por teclado cuantos cilindros tiene
+introduce por teclado de que origen es
+si está mostrar la información del coche, si no "Coche no registrado" volver a probar
