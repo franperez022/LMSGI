@@ -1,0 +1,90 @@
+from __future__ import print_function
+from apiclient.discovery import build
+from httplib2 import Http
+from oauth2client import file, client, tools #autentificacion google
+import datetime
+from rfc3339 import rfc3339 #formato de fecha
+from colorama import init, Fore, Back, Style #colorama
+init(autoreset=True) #para que examine una por una las lineas de colorama
+import json #  json
+from pprint import pprint #pretty print
+import requests #request
+
+
+opcion=" "
+listajugadores=[]
+while opcion != 0:
+        print(Fore.WHITE + Style.BRIGHT +("====================================="))
+        print(Fore.WHITE + Style.BRIGHT +("Herramienta Fútbolera."))
+        print(Fore.WHITE + Style.BRIGHT +("====================================="))
+        print(Fore.GREEN + Style.BRIGHT +("1-Dame el nombre de un jugador y te digo su posicion."))
+        print(Fore.GREEN + Style.BRIGHT +("2-Buscar todos los jugadores del Barcelona."))
+        print(Fore.GREEN + Style.BRIGHT +("3-Dame el nombre de un equipo y te su información."))
+        print(Fore.GREEN + Style.BRIGHT +("4-Dime dos equipos y te doy la estadistica del partido."))
+        print(Fore.GREEN + Style.BRIGHT +("5-Salir."))
+        print(Fore.WHITE + Style.BRIGHT +("====================================="))
+        opcion2=int(input(Fore.WHITE + Style.BRIGHT +("Dime una opción correcta. ")))
+        if opcion2 == 1:
+            nombre=str(input(Fore.YELLOW + Style.BRIGHT +("1-Dame el nombre de un jugador. ")))
+            response = requests.get("https://heisenbug-la-liga-live-scores-v1.p.mashape.com/api/laliga/playerdetails",
+            headers={
+               "X-Mashape-Key": "egVvkK8swrmshcARrBP55Y7syycQp14Tw9Cjsn8lce15bmmLsg",
+                "Accept": "application/json"
+            }
+            )
+            data=response.json()
+            for jugador in data:
+                if str(jugador["playerName"]) == jugador:
+                    print(Fore.CYAN + Style.BRIGHT +(jugador["position"]))
+
+
+        elif opcion2 == 2:
+            print ("Lista de los jugadores del Barcelona.")
+            response = requests.get("https://heisenbug-la-liga-live-scores-v1.p.mashape.com/api/laliga/formations?team1=Barcelona",
+                headers={
+                    "X-Mashape-Key": "egVvkK8swrmshcARrBP55Y7syycQp14Tw9Cjsn8lce15bmmLsg",
+                    "Accept": "application/json"
+            }
+            )
+            data=response.json()
+            for plantilla in data:
+                nomjugador=str(plantilla["playerName"])
+                listajugadores=listajugadores.append([nomjugador])
+                print(Fore.CYAN + Style.BRIGHT +(listajugadores))
+
+        elif opcion2 == 3:
+            equipo=str(input("Dime el nombre de un equipo. "))           
+            response =requests.get("https://heisenbug-la-liga-live-scores-v1.p.mashape.com/api/laliga/table/records",
+                headers={
+                    "X-Mashape-Key": "egVvkK8swrmshcARrBP55Y7syycQp14Tw9Cjsn8lce15bmmLsg",
+                    "Accept": "application/json"
+            }
+            )
+            data=response.json()
+            for equipos in data:
+                if equipos["team"]==equipo:
+                    print(Fore.CYAN + Style.BRIGHT +("Equipo", equipos["team"]))
+                    print(Fore.CYAN + Style.BRIGHT +("P.Jugados", equipos["played"]))
+                    print(Fore.CYAN + Style.BRIGHT +("P.Empatados", equipos["draw"]))
+                    print(Fore.CYAN + Style.BRIGHT +("P.Perdidos", equipos["loss"]))
+                    print(Fore.CYAN + Style.BRIGHT +("Goles a favor", equipos["goalsFor"]))
+                    print(Fore.CYAN + Style.BRIGHT +("Goles en contra", equipos["goalsAgainst"]))
+                    print(Fore.CYAN + Style.BRIGHT +("Puntos", equipos["points"]))
+
+        elif opcion2 == 4:
+            input("Dime un equipo. ")
+            input("Dime otro equipo. ")
+            response = requests.get("https://heisenbug-la-liga-live-scores-v1.p.mashape.com/api/laliga/match/stats?team1=Real+Madrid&team2=Barcelona",
+            headers={
+                "X-Mashape-Key": "egVvkK8swrmshcARrBP55Y7syycQp14Tw9Cjsn8lce15bmmLsg",
+                "Accept": "application/json"
+            }
+            )
+
+            data=response.json()
+            print(data)
+        elif opcion2 == 5:
+            break
+            print("Saliendo")
+        else:
+            print ("Opción no valida.")
